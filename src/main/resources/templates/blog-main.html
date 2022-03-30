@@ -8,6 +8,11 @@
 <body>
 
 <header th:insert="blocks/header :: header"></header>
+<div th:each="el : ${posts}" class="alert alert-info mt-2">
+    <h3 th:text="${el.title}"/>
+    <p th:text="${el.anons}"/>
+    <a th:href="'/blog/' + ${el.id}">Details</a>
+</div>
 
 <main class="container">
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
@@ -17,9 +22,6 @@
             <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
         </div>
     </div>
-
-
-
 </main>
 
 <div th:insert="blocks/footer :: footer"></div>
