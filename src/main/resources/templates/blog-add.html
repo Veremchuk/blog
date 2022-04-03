@@ -12,10 +12,15 @@
 
 <main class="container">
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-        <div th:each="el : ${posts}" class="col-md-6 px-0">
-            <h1 th:text="${el.title}" class="display-4 fst-italic">Title of a longer featured blog post</h1>
-            <p th:text="${el.anons}" class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-            <a th:href="'/blog/' + ${el.id}">Details</a>
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Adding post</h1>
+            <form action="/blog/add" method="post">
+                <input type="text" name="title" placeholder="Enter title" class="form-control"><br>
+                <input type="text" name="anons" placeholder="Enter anons" class="form-control"><br>
+                <textarea name="full_text" placeholder="Enter text" class="form-control"></textarea><br>
+                <button type="submit" class="btn btn-success">Add post</button>
+            </form>
+
             <!--<div th:each="el : ${posts}" class="alert alert-info mt-2">
                 <h3 th:text="${el.title}"/>
                 <p th:text="${el.anons}"/>
